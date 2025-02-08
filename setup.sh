@@ -18,13 +18,19 @@ echo -e "${GREEN}Starting Server Panel Installation...${NC}"
 # Function to get server IP
 get_server_ip() {
     SERVER_IP=$(curl -s ifconfig.me)
+    if [ -z "$SERVER_IP" ]; then
+        SERVER_IP=$(hostname -I | awk '{print $1}')
+    fi
 }
 
 # Check if running as root
 if [ "$EUID" -ne 0 ]; then 
     echo -e "${RED}Please run as root${NC}"
     exit 1
-}
+fi
+
+# Get the server IP
+get_server_ip
 
 # Update system
 echo -e "${BLUE}Updating system...${NC}"
@@ -65,7 +71,6 @@ a2enmod ssl
 a2enmod headers
 
 # Create Apache virtual host with IP instead of domain
-get_server_ip
 PANEL_URL="http://${SERVER_IP}"
 
 cat > /etc/apache2/sites-available/server-panel.conf <<EOF
