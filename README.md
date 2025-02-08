@@ -37,7 +37,7 @@ A powerful web-based server management panel for Ubuntu servers that provides fi
 
 ## Quick Installation
 - bash
-- wget https://raw.githubusercontent.com/your-repo/server-panel/main/setup.sh
+- wget https://raw.githubusercontent.com/aamirxs/server/main/setup.sh
 - chmod +x setup.sh
 - sudo ./setup.sh
 
