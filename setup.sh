@@ -11,7 +11,7 @@ PANEL_DOMAIN=""
 MYSQL_ROOT_PASSWORD=$(openssl rand -base64 12)
 PANEL_DB_PASSWORD=$(openssl rand -base64 12)
 PANEL_ADMIN_PASSWORD=$(openssl rand -base64 12)
-GITHUB_REPO="https://github.com/your-repo/server-panel.git"
+GITHUB_REPO="https://github.com/aamirxs/server.git"
 
 echo -e "${GREEN}Starting Server Panel Installation...${NC}"
 
